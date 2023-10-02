@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css"
         integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         html {
             overflow: hidden;
@@ -146,10 +152,102 @@
                 transform: translateY(4000px);
             }
         }
+
+        .modal {
+            text-shadow: none;
+        }
+
+        .home-content,
+        .our-process-content {
+            --animate-duration: 0.3s;
+        }
     </style>
 </head>
 
 <body class="d-flex h-100 text-center text-bg-dark">
+    <!-- Contact US -->
+    <div class="modal fade text-body" id="contactUsModal" tabindex="-1" aria-labelledby="contactUsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-dark" id="contactUsModalLabel">Let’s Talk!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Ready to enhance and modernize your business processes?</p>
+                    <p>
+                        <a class="link-primary" href="mailto:contact@blazartech.com">Email us</a> at
+                        <strong>contact@blazartech.com</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Privacy Policy -->
+    <div class="modal fade text-start text-body" id="privacyPolicyModal" tabindex="-1"
+        aria-labelledby="privacyPolicyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-dark" id="privacyPolicyModalLabel">Privacy Policy</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>1. Introduction</h5>
+                    <p>
+                        Welcome to Blazar Tech. This privacy policy outlines our practices regarding the collection,
+                        use, and sharing of your personal information. By using our website, you agree to the terms of
+                        this privacy policy.
+                    </p>
+                    <h5>2. Information We Collect</h5>
+                    <p>
+                        We may collect information that you provide directly to us, such as your name, email address,
+                        and phone number when you fill out a contact form. We may also collect information about your
+                        interactions with our website, including the pages you visit and the links you click on.
+                    </p>
+                    <h5>3. How We Use Your Information</h5>
+                    <p>
+                        We use the information we collect to respond to your inquiries, provide the services you
+                        request,
+                        and improve our website and services. We may also use your information to communicate with you
+                        about our services, promotions, and updates.
+                    </p>
+                    <h5>4. Sharing Your Information</h5>
+                    <p> We do not sell or share your personal information with third-party companies for their marketing
+                        purposes without your explicit consent. We may share your information with service providers who
+                        perform services on our behalf, and as required by law or in response to legal requests.
+                    </p>
+                    <h5>5. Your Choices</h5>
+                    <p>
+                        You may opt out of receiving promotional emails from us by following the instructions in those
+                        emails. You may also request to access, update, or delete your personal information by
+                        contacting us at support@blazartech.com.
+                    </p>
+                    <h5>6. Security</h5>
+                    <p>
+                        We take reasonable measures to protect your personal information from unauthorized access, use,
+                        or disclosure. However, no method of transmission over the internet is completely secure, and we
+                        cannot guarantee the absolute security of your personal information.</p>
+
+                    <h5>7. Changes to This Privacy Policy</h5>
+                    <p>
+                        We may update this privacy policy from time to time to reflect changes to our practices or for
+                        other operational, legal, or regulatory reasons. The date at the top of the privacy policy
+                        indicates when it was last updated.
+                    </p>
+                    <h5>8. Contact Us</h5>
+                    <p>
+                        If you have any questions about this privacy policy or our information practices, please contact
+                        us at support@blazartech.com.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="stars-container">
         <div id="stars"></div>
         <div id="stars2"></div>
@@ -166,26 +264,134 @@
                 <small class="align-middle"><em>— Value-driven solutions.</em></small>
             </a>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/">Home</a>
-                <a class="nav-link fw-bold py-1 px-0" href="mailto:contact@blazartech.com">Contact</a>
+                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#" data-name="home">Home</a>
+                <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="#" data-name="our-process">Our
+                    Process</a>
+                <a class="nav-link fw-bold py-1 px-0" href="#" data-bs-toggle="modal"
+                    data-bs-target="#contactUsModal">Contact</a>
             </nav>
         </header>
         <main class="px-3">
-            <h1>Need customized software solutions?</h1>
-            <p class="lead">Our team of experts can help your business with any software development needs, from
-                design and development to deployment and maintenance.
+            <div class="main-content mb-5">
+                <div class="home-content">
+                    <h1 class="d-none d-sm-block">Tailored Software Solutions<br>for Your Business Needs</h1>
+                    <h1 class="d-block d-sm-none">Tailored<br>Software Solutions<br>for Your Business Needs</h1>
+                    <p class="lead mb-5">
+                        At Blazar Tech, we specialize in crafting bespoke software solutions uniquely designed for your
+                        business
+                        requirements. From <strong>web</strong> and <strong>mobile</strong> applications to database
+                        management systems, we have you
+                        covered.
+                    </p>
+                </div>
+                <div class="our-process-content d-none">
+                    <h1>Our Process</h1>
+                    <p class="lead">
+                        We follow a comprehensive approach to ensure your
+                        <br class="d-none d-sm-inline">
+                        software is delivered on time and within budget:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li>Initial Consultation</li>
+                        <li>Requirement Gathering</li>
+                        <li>Development</li>
+                        <li>Testing</li>
+                        <li>Deployment</li>
+                        <li>Ongoing Support and Maintenance</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="lead">
+                Reach out to us today!
             </p>
             <p class="lead">
-                <a href="mailto:contact@blazartech.com"
+                <a href="#" data-bs-toggle="modal" data-bs-target="#contactUsModal"
                     class="btn btn-lg btn-secondary fw-bold border-white bg-white">Contact US</a>
             </p>
         </main>
         <footer class="mt-auto text-white-50 small">
             <p>
-                &copy; 2022 Blazar Tech, LLC.
+                &copy; 2023 Blazar Tech, LLC.
+                <br>
+                <a class="link-secondary" href="#" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal">Privacy
+                    Policy</a>
             </p>
         </footer>
     </div>
+    <script>
+        (() => {
+            const nav = document.querySelector('nav');
+            const homeContent = document.querySelector('.home-content');
+            const ourProcessContent = document.querySelector('.our-process-content');
+            let lastContent = homeContent;
+            let updating = false;
+
+            nav.addEventListener('click', async (event) => {
+                event.preventDefault();
+
+                if (updating) {
+                    return;
+                }
+
+                try {
+                    updating = true;
+
+                    switch (event.target.dataset.name) {
+                        case 'home':
+                            await showContent(homeContent);
+                            break;
+                        case 'our-process':
+                            await showContent(ourProcessContent);
+                            break;
+                        default:
+                            return;
+                    }
+
+                    setActiveLink(event.target);
+                }
+                finally {
+                    updating = false;
+                }
+            });
+
+            function setActiveLink(target) {
+                const currentlyActive = nav.querySelector('a.active');
+                if (currentlyActive !== null) {
+                    currentlyActive.classList.remove('active');
+                }
+                target.classList.add('active');
+            }
+
+            async function showContent(content) {
+                if (lastContent === content) {
+                    return;
+                }
+
+                await animateCSS(lastContent, 'fadeOut');
+                lastContent.classList.add('d-none');
+                content.classList.remove('d-none');
+                await animateCSS(content, 'fadeIn');
+
+                lastContent = content;
+            }
+
+            function animateCSS(node, animation, prefix = 'animate__') {
+                return new Promise((resolve, reject) => {
+                    const animationName = `${prefix}${animation}`;
+
+                    node.classList.add(`${prefix}animated`, animationName);
+
+                    function handleAnimationEnd(event) {
+                        event.stopPropagation();
+                        node.classList.remove(`${prefix}animated`, animationName);
+                        resolve('Animation ended');
+                    }
+
+                    node.addEventListener('animationend', handleAnimationEnd, { once: true });
+                });
+            }
+        })();
+    </script>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
         data-cf-beacon='{"token": "645fb47dafad4dcd8996119a7a088e3c"}'></script>
 </body>
